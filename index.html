@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Цілуйко Дар'я Андріївна">
+    <title>Train Manager – Лабораторна робота №5</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="app-header">
+        <div class="container header-container">
+            <div class="brand-title">
+                <h1>Train Manager</h1>
+            </div>
+            <div class="student-info">
+                <p>Виконала студентка: Цілуйко Дар'я Андріївна | Група: КН-31 | Варіант: 8</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container content-area">
+
+        <div class="navigation-wrapper">
+            <nav class="app-nav">
+                <button class="nav-btn active" data-tab="tab-task1">Завдання 1: Табло потягів</button>
+                <button class="nav-btn" data-tab="tab-task21">Завдання 2.1: Додати рейс</button>
+                <button class="nav-btn" data-tab="tab-task22">Завдання 2.2: Тарифи послуг</button>
+            </nav>
+        </div>
+
+        <section id="tab-task1" class="tab-content active">
+            <div class="card">
+                <h2>Завдання 1. Інформаційне табло потягів</h2>
+                <div class="task-description">
+                    <p>Моніторинг розкладу потягів. Заплановані рейси підсвічуються зеленим, рейси з відправленням через 1-5 днів - жовтим, а протерміновані або ті, що відправляються сьогодні - червоним.</p>
+                </div>
+                
+                <div id="flights-result" class="table-responsive">
+                    <!-- Генерується через JS -->
+                </div>
+
+                <div class="actions-bar space-between margin-top">
+                    <button id="btn-sort-date" class="btn btn-outline">Сортувати за датою</button>
+                    <button id="btn-refresh" class="btn btn-primary">Оновити табло</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="tab-task21" class="tab-content">
+            <div class="card">
+                <h2>Завдання 2.1. Додавання нового рейсу потяга</h2>
+                <div class="task-description">
+                    <p>У формі є поля для введення рейсу та його ціни. Після натискання Enter у полі ціни або кнопки форми рейс створюється та додається до таблиці у Завданні 1.</p>
+                </div>
+
+                <div class="form-compact">
+                    <div class="form-field">
+                        <label for="input-flight-name">Маршрут потяга:</label>
+                        <input type="text" id="input-flight-name" placeholder="напр. Харків – Київ">
+                    </div>
+
+                    <div class="form-field">
+                        <label for="input-flight-price">Ціна квитка:</label>
+                        <input type="number" id="input-flight-price" placeholder="ціна від 30 грн">
+                    </div>
+
+                    <div class="form-field">
+                        <label for="input-flight-date">Дата відправлення:</label>
+                        <input type="date" id="input-flight-date">
+                    </div>
+
+                    <div class="form-field btn-field">
+                        <button id="btn-add-flight-manual" class="btn btn-primary">Додати рейс</button>
+                    </div>
+                </div>
+
+                <div id="add-error-msg" class="alert-danger" style="display: none;"></div>
+                <div id="add-success-msg" class="alert-success" style="display: none;">
+                    Рейс успішно додано до табло!
+                </div>
+            </div>
+        </section>
+
+        <section id="tab-task22" class="tab-content">
+            <div class="card">
+                <h2>Завдання 2.2. Тарифи вагонів та послуг</h2>
+                <div class="task-description">
+                    <p>При натисканні на комірку з'являється поле введення з вмістом цієї комірки і кнопка "Зберегти" для редагування значення.</p>
+                </div>
+
+                <div class="table-responsive">
+                    <table id="editable-tariffs-table" class="editable-table">
+                        <thead>
+                            <tr>
+                                <th>Категорія / Тип вагона</th>
+                                <th>Плацкарт / 2 клас</th>
+                                <th>Купе / 1 клас</th>
+                                <th>Люкс</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Нічний швидкий потяг</td>
+                                <td>320 грн</td>
+                                <td>580 грн</td>
+                                <td>1450 грн</td>
+                            </tr>
+                            <tr>
+                                <td>Інтерсіті+</td>
+                                <td>490 грн</td>
+                                <td>820 грн</td>
+                                <td>–</td>
+                            </tr>
+                            <tr>
+                                <td>Постільна білизна</td>
+                                <td>90 грн</td>
+                                <td>90 грн</td>
+                                <td>включено</td>
+                            </tr>
+                            <tr>
+                                <td>Чай / Кава</td>
+                                <td>30 грн</td>
+                                <td>30 грн</td>
+                                <td>включено</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="app-footer">
+        <div class="container">
+            <p>&copy; 2026 Train Manager</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
